@@ -23,9 +23,13 @@
               "src/assets"
             ],
             "styles": [
+              "node_modules/bootswatch/dist/lux/bootstrap.min.css",
+              "node_modules/font-awesome/css/font-awesome.min.css",
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/bootstrap/dist/js/bootstrap.min.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -94,8 +98,21 @@
             ],
             "scripts": []
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "prerender": false,
+            "ssr": false,
+            "browserTarget": "ngFirebase:build:production",
+            "firebaseProject": "crudfirebaseprojectangular",
+            "firebaseHostingSite": "crudfirebaseprojectangular"
+          }
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "f141074f-fc3f-401b-8e72-d630fbfa5bc2"
   }
 }
