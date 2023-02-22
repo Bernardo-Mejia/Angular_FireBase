@@ -1,0 +1,89 @@
+<div class="alert alert-info" *ngFor="let item of items; let i = index">
+  {{ item.id }}.- {{ item.name }}
+  <i
+    class="fa fa-solid fa-trash float-end text-danger"
+    [ngStyle]="{ cursor: 'pointer' }"
+    (click)="eliminar(item.id)"
+  ></i>
+  <i
+    class="fa fa-solid fa-pencil float-end text-warning me-2"
+    [ngStyle]="{ cursor: 'pointer' }"
+    (click)="editar(item)"
+    data-bs-toggle="modal"
+    data-bs-target="#modalId"
+  ></i>
+</div>
+
+<!-- ! Modal trigger button -->
+<!-- <button
+  type="button"
+  class="btn btn-primary btn-lg"
+  data-bs-toggle="modal"
+  data-bs-target="#modalId"
+>
+  Launch
+</button> -->
+
+<!-- ? Modal Body -->
+<div
+  class="modal fade"
+  id="modalId"
+  tabindex="-1"
+  data-bs-backdrop="static"
+  data-bs-keyboard="false"
+  role="dialog"
+  aria-labelledby="modalTitleId"
+  aria-hidden="true"
+>
+  <div
+    class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-sm"
+    role="document"
+  >
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modalTitleId">Editar documento</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <form (submit)="editarForm()">
+        <!-- * Body -->
+        <div class="modal-body">
+          <div class="mb-3">
+            <label for="nameItem" class="form-label">Nombre</label>
+            <input
+              type="text"
+              class="form-control"
+              name="name"
+              id="nameItem"
+              aria-describedby="helpId"
+              [(ngModel)]="itemEditar.name"
+            />
+          </div>
+        </div>
+        <!-- * -->
+        <div class="modal-footer">
+          <button
+            type="button"
+            class="btn btn-secondary"
+            data-bs-dismiss="modal"
+          >
+            Cerrar
+          </button>
+          <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Actualizar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- Optional: Place to the bottom of scripts -->
+<script>
+  const myModal = new bootstrap.Modal(
+    document.getElementById("modalId"),
+    options
+  );
+</script>

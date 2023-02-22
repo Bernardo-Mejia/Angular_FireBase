@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "crudfirebaseprojectangular": {
+      "hosting": {
+        "ngFirebase": [
+          "crudfirebaseprojectangular"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "crudfirebaseprojectangular"
+  }
+}
